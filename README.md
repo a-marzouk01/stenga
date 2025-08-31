@@ -40,10 +40,22 @@ make
 make run ARGS="sim"
 ```
 
+or
+
+```bash
+make run-sim
+```
+
 ### Compile the code to assembly
 
 ```bash
 make run ARGS="com"
+```
+
+or
+
+```bash
+make run-com
 ```
 
 ### Assemble & link the generated assembly
