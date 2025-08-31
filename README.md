@@ -2,7 +2,8 @@
 A stack based programming language
 
 * `main.c` - the compiler itself
-* `libs/dray` - a dynamic-array library [link]<https://github.com/a-marzouk01/dynamic-arrays>
+* `libs/dray` - a dynamic-array library [link](https://github.com/a-marzouk01/dynamic-arrays)
+
 
 ---
 
@@ -22,6 +23,8 @@ sudo apt install build-essential nasm
 ```
 
 ---
+
+## RUNNING
 
 Everything is in the Makefile
 
