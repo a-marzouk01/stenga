@@ -100,11 +100,9 @@ void simulate_program() {
         } else if (operations.items[i] == PLUS) {
             assert(st.size >= 2);
 
-            int o1 = st.items[st.size-1];
-            pop(&st);
+            int o1 = pop(&st);
 
-            int o2 = st.items[st.size-1];
-            pop(&st);
+            int o2 = pop(&st);
 
             append(&st, o1 + o2);
         } else {
