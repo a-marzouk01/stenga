@@ -25,5 +25,10 @@ run-sim: $(TARGET)
 run-com: $(TARGET)
 	./$(TARGET) com
 
+run-asm: output.asm
+	nasm -felf64 -o output.o output.asm
+	gcc output.o -no-pie -o output
+	./output
+
 clean:
 	rm -f $(TARGET) $(OBJS)
