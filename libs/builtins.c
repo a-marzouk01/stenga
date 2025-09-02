@@ -80,3 +80,37 @@ void dump_code(FILE *fp) {
     fprintf(fp, "        mov     eax, 1\n");
     fprintf(fp, "        jmp     .L2\n");
 }
+
+void push_code(FILE* fp, int x) {
+    fprintf(fp, "    ;; push %d\n", x);
+    fprintf(fp, "    push %d\n", x);
+}
+
+void plus_code(FILE *fp) {
+    fprintf(fp, "    ;; add\n");
+    fprintf(fp, "    pop rax\n");
+    fprintf(fp, "    pop rbx\n");
+    fprintf(fp, "    add rax, rbx\n");
+    fprintf(fp, "    push rax\n");
+}
+
+void sub_code(FILE *fp) {
+    fprintf(fp, "    ;; sub\n");
+    fprintf(fp, "    pop rax\n");
+    fprintf(fp, "    pop rbx\n");
+    fprintf(fp, "    sub rax, rbx\n");
+    fprintf(fp, "    push rax\n");
+}
+
+void print_code(FILE *fp) {
+    fprintf(fp, "    ;; print\n");
+    fprintf(fp, "    pop rdi\n");
+    fprintf(fp, "    call dump\n");
+}
+
+void epilogue(FILE *fp) {
+    fprintf(fp, "\n");
+    fprintf(fp, "    mov rax, 60\n");
+    fprintf(fp, "    mov rdi, 0\n");
+    fprintf(fp, "    syscall\n");
+}

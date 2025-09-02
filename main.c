@@ -79,33 +79,19 @@ void compile_program(char* path_to_file) {
 
     for (size_t i = 0; i < operations.size; i++) {
         if (operations.items[i] == PUSH) {
-            fprintf(fp, "    ;; push %d\n", operands.items[i]);
-            fprintf(fp, "    push %d\n", operands.items[i]);
+            push_code(fp, operands.items[i]);
         } else if (operations.items[i] == PLUS) {
-            fprintf(fp, "    ;; add\n");
-            fprintf(fp, "    pop rax\n");
-            fprintf(fp, "    pop rbx\n");
-            fprintf(fp, "    add rax, rbx\n");
-            fprintf(fp, "    push rax\n");
+            plus_code(fp);
         } else if (operations.items[i] == SUB) { 
-            fprintf(fp, "    ;; sub\n");
-            fprintf(fp, "    pop rax\n");
-            fprintf(fp, "    pop rbx\n");
-            fprintf(fp, "    sub rax, rbx\n");
-            fprintf(fp, "    push rax\n");
+            sub_code(fp);
         } else if (operations.items[i] == DUMP) {
-            fprintf(fp, "    ;; print\n");
-            fprintf(fp, "    pop rdi\n");
-            fprintf(fp, "    call dump\n");
+            print_code(fp);
         } else {
             assert(0);
         }
     }
 
-    fprintf(fp, "\n");
-    fprintf(fp, "    mov rax, 60\n");
-    fprintf(fp, "    mov rdi, 0\n");
-    fprintf(fp, "    syscall\n");
+    epilogue(fp);
 
     fclose(fp);
 }
