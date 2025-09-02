@@ -3,7 +3,7 @@ STD := c11
 CFLAGS  := -std=$(STD) -Wall -Wextra -pedantic -g
 LDLIBS  := 
 
-SRCS := main.c libs/dray.c
+SRCS := main.c libs/dray.c libs/builtins.c
 OBJS := $(SRCS:.c=.o)
 TARGET := main
 
